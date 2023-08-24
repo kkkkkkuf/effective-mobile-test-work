@@ -1,0 +1,17 @@
+<div class="navbar-fixed">
+  <nav class="grey">
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="right">
+        <li>
+          <a (click)="navigateToPosts()">Список постов</a>
+        </li>
+        <li *ngIf="isAuthenticated">
+          <a class="waves-effect waves-light btn" (click)="onLogout()">Выйти</a>
+        </li>
+        <li *ngIf="!isAuthenticated">
+          <a routerLink="/">Вход</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>

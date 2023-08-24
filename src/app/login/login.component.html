@@ -1,0 +1,65 @@
+<app-header></app-header>
+
+<div class="login-container">
+  <div class="login-form">
+    <div class="tab">
+      <h2 [class.active]="isSignInActive" (click)="toggleTabs(true)">Вход</h2>
+      <h2 [class.active]="!isSignInActive" (click)="toggleTabs(false)">
+        Регистрация
+      </h2>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="input-field">
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          [(ngModel)]="email"
+          class="validate"
+          placeholder=" "
+        />
+        <label for="email">Логин</label>
+        <span class="helper-text" *ngIf="_email.invalid && _email.touched">
+          <span *ngIf="_email.errors?.['required']"
+            >Email не должен быть пустым</span
+          >
+          <span *ngIf="_email.errors?.['email']"
+            >Введите корректный email адрес</span
+          >
+        </span>
+      </div>
+      <div class="input-field">
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          [(ngModel)]="password"
+          class="validate"
+          placeholder=" "
+        />
+        <label for="password">Пароль</label>
+        <span
+          class="helper-text"
+          *ngIf="_password.invalid && _password.touched"
+        >
+          <span *ngIf="_password.errors?.['required']"
+            >Пароль не должен быть пустым</span
+          >
+          <span
+            *ngIf="_password.errors?.['minlength'] && _password.errors?.['minlength']['requiredLength']"
+            >Пароль должен быть более
+            {{ _password.errors?.['minlength']['requiredLength']}} символов.
+            Сейчас {{_password.errors?.['minlength']['actualLength']}}
+          </span>
+        </span>
+      </div>
+
+      <div class="button-container">
+        <button class="btn signin" [disabled]="!isFormValid">
+          {{ isSignInActive ? "Войти" : "Зарегистрироваться" }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

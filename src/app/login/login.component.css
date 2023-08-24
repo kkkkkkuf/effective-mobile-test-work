@@ -1,0 +1,67 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form {
+  max-width: 400px;
+  width: 100%;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tab {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.tab h2 {
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.tab h2.active {
+  border-bottom: 2px solid #000000;
+}
+
+.input-field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+
+.input-field label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.2s;
+  pointer-events: none;
+}
+
+.input-field input.validate:focus+label {
+  color: #000000;
+  transform: translateY(-15px);
+}
+
+.input-field input.validate:not(:placeholder-shown)+label {
+  color: #000000;
+  transform: translateY(-15px);
+}
+
+.helper-text {
+  color: #A22323;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+
